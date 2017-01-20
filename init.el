@@ -37,12 +37,11 @@ values."
                       auto-completion-tab-key-behavior 'cycle
                       auto-completion-private-snippets-directory "~/.spacemacs.d/snippets"
                       :disable-for org)
-     helm
      better-defaults
      emacs-lisp
      emoji
      ess
-     eyebrowse
+     (syntax-checking :variables syntax-checking-enable-by-default nil)
      git
      github
      html
@@ -57,7 +56,6 @@ values."
      ;;        shell-default-position 'bottom)
      ;; spell-checking
      ;; syntax-checking
-     unimpared
      version-control
      yaml
      ;; encoding 
@@ -321,3 +319,15 @@ you should place your code here."
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(paradox-github-token t))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
