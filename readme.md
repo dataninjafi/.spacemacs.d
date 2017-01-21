@@ -143,7 +143,14 @@ spc j
 * k go to a new line and ident
 
 spc g:
-* 
+* . vcs microstate
+* b git blame microstate
+* c commit
+* C checkout
+* s magit status
+* d diff
+* D diff head
+
 
 
 
