@@ -34,7 +34,7 @@ values."
                       auto-completion-enable-snippets-in-popup t
                       auto-completion-enable-sort-by-usage t
                       auto-completion-return-key-behavior nil
-                      ;;  auto-completion-tab-key-behavior 'cycle
+                      auto-completion-tab-key-behavior 'cycle
                       auto-completion-private-snippets-directory "~/.spacemacs.d/snippets"
                       :disable-for org)
      better-defaults

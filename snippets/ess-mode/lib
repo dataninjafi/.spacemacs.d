@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: sneik-r-library
+# key: lib
+# --
+library(${0:name})
