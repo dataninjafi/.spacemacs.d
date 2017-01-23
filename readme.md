@@ -142,19 +142,17 @@ spc j
 * = reident
 * k go to a new line and ident
 
-spc g:
-* . vcs microstate
+spc g: 
+. vcs microstate
 * b git blame microstate
 * c commit
 * C checkout
-* s magit status
 * d diff
 * D diff head
+* s magit status
+* S/U (un)stage whole file
+* t time machine microstate
+* 
+ESS bindings:
 
-
-
-
-
-
-
- 
+* M {/} move up and down in repl
