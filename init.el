@@ -317,6 +317,20 @@ explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
   )
 
+; Polymode https://github.com/vspinu/polymode
+(setq load-path
+      (append '("~/polymode/"  "~/polymode/modes")
+              load-path))
+(require 'poly-R)
+(require 'poly-markdown)
+;;; MARKDOWN
+(add-to-list 'auto-mode-alist '("\\.md$" . poly-markdown-mode))
+;;; R related modes
+(add-to-list 'auto-mode-alist '("\\.Snw$" . poly-noweb+r-mode))
+(add-to-list 'auto-mode-alist '("\\.Rnw$" . poly-noweb+r-mode))
+(add-to-list 'auto-mode-alist '("\\.Rmd$" . poly-markdown+r-mode))
+
+
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
 (custom-set-variables
