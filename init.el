@@ -40,7 +40,8 @@ values."
      better-defaults
      emacs-lisp
      emoji
-     ess
+     (ess :variables
+          ess-enable-smart-equals t)
      (syntax-checking :variables syntax-checking-enable-by-default nil)
      git
      github
