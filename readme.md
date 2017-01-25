@@ -74,6 +74,11 @@ SPC ? a list of helm session keybindings
 SPC ` moves backward 
 SPC F1 Fuzzy search of emacs stuff
 
+SPC P:
+
+* p find a project
+* f find a file in this project
+
 SPC A:
 
  * c: calculator (q)

@@ -52,9 +52,10 @@ values."
      ranger
      semantic
      smex
-     ;; (shell :variables
-     ;;        shell-default-height 30
-     ;;        shell-default-position 'bottom)
+     (shell :variables
+            shell-default-shell 'eshell
+            shell-default-height 30
+            shell-default-position 'bottom)
      ;; spell-checking
      ;; syntax-checking
      version-control
@@ -330,7 +331,6 @@ you should place your code here."
 (add-to-list 'auto-mode-alist '("\\.Snw$" . poly-noweb+r-mode))
 (add-to-list 'auto-mode-alist '("\\.Rnw$" . poly-noweb+r-mode))
 (add-to-list 'auto-mode-alist '("\\.Rmd$" . poly-markdown+r-mode))
-
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
