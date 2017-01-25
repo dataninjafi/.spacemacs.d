@@ -33,15 +33,15 @@ values."
    '((auto-completion :variables
                       auto-completion-enable-snippets-in-popup t
                       auto-completion-enable-sort-by-usage t
-                      auto-completion-return-key-behavior nil
+                      auto-completion-return-key-behavior 'complete
                       auto-completion-tab-key-behavior 'cycle
-                      auto-completion-private-snippets-directory "~/.spacemacs.d/snippets"
+                      auto-completion-complete-with-key-sequence-delay 0.1
+                      auto-completion-private-snippets-directory "~/.spacemacs.d/snippets/"
                       :disable-for org)
      better-defaults
      emacs-lisp
      emoji
-     (ess :variables
-          ess-enable-smart-equals t)
+     (ess :variables ess-enable-smart-equals t)
      (syntax-checking :variables syntax-checking-enable-by-default nil)
      git
      github
