@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: Timestamp
+# key: ts
+# --
+
+\`r paste("#", date(), "------------------------------\n")\`

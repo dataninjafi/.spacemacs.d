@@ -312,26 +312,57 @@ before packages are loaded. If you are unsure, you should try in setting them in
   )
 
 (defun dotspacemacs/user-config ()
-  "Configuration function for user code.
-This function is called at the very end of Spacemacs initialization after
+  "configuration function for user code.
+this function is called at the very end of spacemacs initialization after
 layers configuration.
-This is the place where most of your configurations should be done. Unless it is
+this is the place where most of your configurations should be done. unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
-  )
 
-; Polymode https://github.com/vspinu/polymode
+; global bindings
+(global-set-key [M-kp-8] 'expand-abbrev)
+
+; polymode https://github.com/vspinu/polymode
 (setq load-path
       (append '("~/polymode/"  "~/polymode/modes")
               load-path))
 (require 'poly-R)
 (require 'poly-markdown)
-;;; MARKDOWN
+;; markdown
 (add-to-list 'auto-mode-alist '("\\.md$" . poly-markdown-mode))
-;;; R related modes
-(add-to-list 'auto-mode-alist '("\\.Snw$" . poly-noweb+r-mode))
-(add-to-list 'auto-mode-alist '("\\.Rnw$" . poly-noweb+r-mode))
-(add-to-list 'auto-mode-alist '("\\.Rmd$" . poly-markdown+r-mode))
+;; r related modes
+(add-to-list 'auto-mode-alist '("\\.snw$" . poly-noweb+r-mode))
+(add-to-list 'auto-mode-alist '("\\.rnw$" . poly-noweb+r-mode))
+(add-to-list 'auto-mode-alist '("\\.rmd$" . poly-markdown+r-mode))
+
+; ess settings
+;(ess-set-style 'rstudio)
+;; piping
+(defun then_r_operator ()
+  "r - %>% operator or 'then' pipe operator"
+  (interactive)
+  (just-one-space 1)
+  (insert "%>%")
+  (reindent-then-newline-and-indent))
+(define-key ess-mode-map (kbd "c-%") 'then_r_operator)
+(define-key inferior-ess-mode-map (kbd "c-%") 'then_r_operator)
+;; repl bindings
+(define-key comint-mode-map [c-up] 'comint-previous-matching-input-from-input)
+(define-key comint-mode-map [c-down] 'comint-next-matching-input-from-input)
+
+(setq abbrev-file-name "~/.spacemacs.d/abbrev_defs")
+
+;; Text settings
+(setq-default
+ ;; Turns on auto-fill-mode to automatically break lines
+ auto-fill-function 'do-auto-fill
+ )
+;; (require 'r-autoyas)
+;; (add-hook 'ess-mode-hook 'r-autoyas-ess-activate)
+)
+
+
+
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
