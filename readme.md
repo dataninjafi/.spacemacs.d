@@ -7,15 +7,7 @@ https://gist.github.com/davoclavo/d41cd86ffda22f1649e4
 
 * Undo - `C-/`* Undo - `C-/`
 * Redo - `C-?`
-* Change case: 1. Camel Case : `M-c`
-               2. Upper Case : `M-u`
-               3. Lower Case : `M-l`
-* Helm-projectile find file : `M-m p f`
-* Helm-projectile-grep : `M-m p s g`
-* Toggle Auto complete : `M-m t a`
-* Neotree root directory : `M-m p t`
 * Linum-relative : `M-m t r`
-* Ace-jump mode : `M-m SPC`
 *. Helm-bookmarks : `M-m h b`
 * Iedit mode : 1. `M-<left>`, `M-<right>` to navigate,
                2. `C-;` to select/deselct all for edit at once
@@ -24,7 +16,6 @@ https://gist.github.com/davoclavo/d41cd86ffda22f1649e4
 * Winner mode: 1. Undo : `C-c <left>`
                2. Redo : `C-c <right>`
 * Toggle Aggressive Indent Mode : `M-m t I`
-* Open file in new buffer after `M-m p f` : `C-c o`
 * Dired mode : 1. Copy file : `C`
                2. Delete the file : `D`
                3. Rename the file : `R`

@@ -30,15 +30,17 @@ values."
    dotspacemacs-configuration-layer-path '()
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
-   '((auto-completion :variables
+   '(
+     (auto-completion :variables
                       auto-completion-enable-snippets-in-popup t
                       auto-completion-return-key-behavior 'complete
                       auto-completion-tab-key-behavior 'complete
                       auto-completion-complete-with-key-sequence nil
                       auto-completion-complete-with-key-sequence-delay 0.1
-                      auto-completion-private-snippets-directory "~/.spacemacs.d/snippets/"
-                      auto-completion-enable-help-tooltip 'manual)
+                      auto-completion-private-snippets-directory "~/.spacemacs.d/snippets"
+                      auto-completion-enable-help-tooltip t)
      better-defaults
+     csv
      emacs-lisp
      emoji
      ess
@@ -57,7 +59,7 @@ values."
             shell-default-shell 'eshell
             shell-default-height 30
             shell-default-position 'bottom)
-     ;; spell-checking
+     spell-checking
      ;; syntax-checking
      version-control
      yaml
@@ -319,8 +321,9 @@ this is the place where most of your configurations should be done. unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
 
-; global bindings
-(global-set-key [M-kp-8] 'expand-abbrev)
+
+(global-company-mode)
+
 
 ; polymode https://github.com/vspinu/polymode
 (setq load-path
@@ -344,19 +347,47 @@ you should place your code here."
   (just-one-space 1)
   (insert "%>%")
   (reindent-then-newline-and-indent))
-(define-key ess-mode-map (kbd "c-%") 'then_r_operator)
-(define-key inferior-ess-mode-map (kbd "c-%") 'then_r_operator)
+(define-key ess-mode-map (kbd "C-%") 'then_r_operator)
+(define-key inferior-ess-mode-map (kbd "C-%") 'then_r_operator)
 ;; repl bindings
-(define-key comint-mode-map [c-up] 'comint-previous-matching-input-from-input)
-(define-key comint-mode-map [c-down] 'comint-next-matching-input-from-input)
+;(define-key comint-mode-map [c-up] 'comint-previous-matching-input-from-input)
+;(define-key comint-mode-map [c-down] 'comint-next-matching-input-from-input)
 
+; Abbrev mode
+(setq default-abbrev-mode t)
 (setq abbrev-file-name "~/.spacemacs.d/abbrev_defs")
+(if (file-exists-p abbrev-file-name)
+    (quietly-read-abbrev-file))
+(setq save-abbrevs t)
+(dolist (hook '(erc-mode-hook
+                emacs-lisp-mode-hook
+                text-mode-hook))
+  (add-hook hook (lambda () (abbrev-mode 1))))
+(defun xah-abbrev-h-f ()
+  "Abbrev hook function, used for `define-abbrev'.
+ Our use is to prevent inserting the char that triggered expansion. Experimental.
+ the “ahf” stand for abbrev hook function.
+Version 2016-10-24"
+  t)
+(put 'xah-abbrev-h-f 'no-self-insert t)
+;; Like this
+;(define-abbrev-table 'global-abbrev-table
+;  '(
+;    ("addr" "address" xah-abbrev-h-f)
+;    ))
+
+(setq ispell-local-dictionary-alist
+      (append ispell-local-dictionary-alist
+              '(("suomi"
+                 "[%.0-9A-Za-z\247\300-\326\330-\366\370-\377-]"
+                 "[^.%0-9A-Za-z\247\300-\326\330-\366\370-\377-]"
+                 "[':]" nil nil nil utf-8))))
 
 ;; Text settings
-(setq-default
+;(setq-default
  ;; Turns on auto-fill-mode to automatically break lines
- auto-fill-function 'do-auto-fill
- )
+ ;auto-fill-function 'do-auto-fill
+;)
 ;; (require 'r-autoyas)
 ;; (add-hook 'ess-mode-hook 'r-autoyas-ess-activate)
 )
