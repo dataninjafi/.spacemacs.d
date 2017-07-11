@@ -31,6 +31,7 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
+     rust
      (auto-completion :variables
                       auto-completion-enable-snippets-in-popup t
                       auto-completion-return-key-behavior 'complete
@@ -53,7 +54,7 @@ values."
      markdown
      org
      ranger
-     semantic
+     ;; semantic
      smex
      (shell :variables
             shell-default-shell 'eshell
@@ -140,9 +141,9 @@ values."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(monokai)
+   dotspacemacs-themes '(monokai spacemacs-dark leuven)
    ;; If non nil the cursor color matches the state color in GUI Emacs.
-   dotspacemacs-colorize-cursor-according-to-state t
+   dotspacemacs-colorize-cursor-according-to-state nil
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
    dotspacemacs-default-font '("Source Code Pro"
@@ -265,7 +266,7 @@ values."
    dotspacemacs-line-numbers 'relative
    ;; Code folding method. Possible values are `evil' and `origami'.
    ;; (default 'evil)
-   dotspacemacs-folding-method 'origami
+   dotspacemacs-folding-method 'evil
    ;; If non-nil smartparens-strict-mode will be enabled in programming modes.
    ;; (default nil)
    dotspacemacs-smartparens-strict-mode nil
@@ -346,12 +347,29 @@ you should place your code here."
   (interactive)
   (just-one-space 1)
   (insert "%>%")
-  (reindent-then-newline-and-indent))
-(define-key ess-mode-map (kbd "C-%") 'then_r_operator)
-(define-key inferior-ess-mode-map (kbd "C-%") 'then_r_operator)
+  ;;(reindent-then-newline-and-indent)
+  )
+(define-key ess-mode-map (kbd "C-ö") 'then_r_operator)
+(define-key inferior-ess-mode-map (kbd "C-ö") 'then_r_operator)
+(defun then_is_operator ()
+  "r - %>% operator or 'then' pipe operator"
+  (interactive)
+  (just-one-space 1)
+  (insert "<-")
+  (just-one-space 1))
+(define-key ess-mode-map (kbd "C-ä") 'then_is_operator)
+(define-key inferior-ess-mode-map (kbd "C-ä") 'then_is_operator)
+;(setq ess-smart-S-assign-key "oö")
+(ess-toggle-S-assign nil)
+(ess-toggle-underscore nil) ; leave underscore key alone!
+(setq ess-eval-visibly-p nil)
 ;; repl bindings
-;(define-key comint-mode-map [c-up] 'comint-previous-matching-input-from-input)
-;(define-key comint-mode-map [c-down] 'comint-next-matching-input-from-input)
+(define-key comint-mode-map [c-up] 'comint-previous-matching-input-from-input)
+(define-key comint-mode-map [c-down] 'comint-next-matching-input-from-input)
+(add-hook 'inferior-ess-mode-hook (lambda () (setq-local comint-use-prompt-regexp nil)))
+(add-hook 'inferior-ess-mode-hook (lambda () (setq-local inhibit-field-text-motion nil)))
+
+
 
 ; Abbrev mode
 (setq default-abbrev-mode t)

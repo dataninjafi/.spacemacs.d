@@ -1,10 +1,11 @@
-sources: 
-
+#+TITLE: Dataninja's cheat to spacemacs
+#+OPTIONS: TOC:nil
 https://github.com/TheBB/spacemacs-layers/blob/master/init.el
 https://gist.github.com/davoclavo/d41cd86ffda22f1649e4
 
 `emacs --daemon` to run in the background.
 
+* Sort these
 * Undo - `C-/`* Undo - `C-/`
 * Redo - `C-?`
 * Linum-relative : `M-m t r`
@@ -65,90 +66,105 @@ SPC ? a list of helm session keybindings
 SPC ` moves backward 
 SPC F1 Fuzzy search of emacs stuff
 
-SPC P:
+* SPC p
+** p find a project
+** f find a file in this project
 
-* p find a project
-* f find a file in this project
+* SPC a
+** c calculator (q)
+** d Deer (file tree navigator )
+** r Ranger
+** E Emoji
+** o Org
+** p Processes
+** u Undo tree
+* SPC b
+** . (Micro state) jump between buffers and kill
+** b
+** C-z actions
+** B IBuffer
+** d delete buffer
+** P copy from clipboard to buffer
+** Y copy to clipboard
+** R revert to data on disk
+* SPC c
+** l comment line
+** l comment line invert
+** p comment paragraph
+** P comment paragraph invert
+** t comment to line
+** T comment to line invert
+* SPC C
+** c Org capture (SPC aoc)
+** l helm color
+* SPC E
+* SPC F
+** c copy buffer to a new file name
+** C convert line endings
+** s save buffer
+** D delete file and buffer
+** f find file
+** j jump to directory of file
+** S save all buffers
+** e d go to .spacemacs
+** e f .spacemacs faq
+** e R apply changes in dotfiles
+** e v show and copy spacemacs version
+** e h HELP
+* SPC h
+** spc help
+** k which-key toplevel
+** M Helm major mode
+* SPC i
+** e emoji
+** j, J, k, K insert empty line or [ SPC or space ]
+** l lorem ipsum text
+** s Helm yasnippets
+* SPC j
+** = reident
+** k go to a new line and ident
+* spc g
+** . vcs microstate
+** b git blame microstate
+** c commit
+** C checkout
+** d diff
+** D diff head
+** s magit status
+** S/U (un)stage whole file
+** t time machine microstate
+* ess layer
+** M {/} move up and down in repl
+** C-c C-c break
+** M n 1 1
+**
+* Org mode
+** M arrows ... moves item up, down, demote, promote
+** M RET ... inserts a new heading/list item
+** S arrows ... switch between todo and priority states
+** SPC m - ... changes list style
+** SPC : ... tags
+** SPC , ... ctrl c ctrl c
+** C-c C-z C-a Archive a entry
+** C-c C-z C-a Archive a subtree
+** C-u C-c C-x C-s Serch all done under subtree and archive with prompt
+** col view and archive property:https://www.youtube.com/watch?v=BeAtCVZpHCg&index=20&list=PLVtKhBrRV_ZkPnBtt_TD1Cs9PJlU0IIdE
+** Tables
+| Nimi            | titteli              | työpaikka |
+|-----------------+----------------------+-----------|
+| Risto Kaartinen | työelämäasiantuntija | Keva      |
+| Joku muu        | johtaja              | Kela      |
+|                 |                      |           |
+** Source code
 
-SPC A:
+#+BEGIN_SRC R
+mtcars
 
- * c: calculator (q)
- * d: Deer (file tree navigator )
- * r: Ranger
- * E: Emoji
- * o: Org
- * p: Processes
- * u: Undo tree
- 
- SPC b:
- 
- * . (Micro state) jump between buffers and kill 
- * b 
-    * C-z actions
- * B IBuffer
- * d delete buffer
- * P copy from clipboard to buffer
- * Y copy to clipboard
- * R revert to data on disk
-http:www.hs.fi
+#+END_SRC
 
-space c:
-* l comment line
-* l comment line invert
-* p comment paragraph
-* P comment paragraph invert
-* t comment to line
-* T comment to line invert
-
-SPC C:
-* c Org capture (SPC aoc)
-* l helm color
-
-SPC E:
-
-SPC F
-* c copy buffer to a new file name
-* C convert line endings
-* s save buffer
-* D delete file and buffer
-* f find file
-* j jump to directory of file
-* S save all buffers
-* e d go to .spacemacs
-* e f .spacemacs faq
-* e R apply changes in dotfiles
-* e v show and copy spacemacs version
-* e h HELP
-
-SPC h:
-* spc help
-* k which-key toplevel 
-* M Helm major mode
-
-SPC i:
-
-* e emoji
-* j, J, k, K insert empty line or [ SPC or space ]
-* l lorem ipsum text
-* s Helm yasnippets
-*
-
-
-spc j
-* = reident
-* k go to a new line and ident
-
-spc g: 
-. vcs microstate
-* b git blame microstate
-* c commit
-* C checkout
-* d diff
-* D diff head
-* s magit status
-* S/U (un)stage whole file
-* t time machine microstate
-* 
-ESS bindings:
-
-* M {/} move up and down in repl
+* Vim commands
+** Selecting
+*** A paragraph vip
+** Code folding
+*** zm fold
+*** zr open folded

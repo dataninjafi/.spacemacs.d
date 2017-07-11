@@ -71,14 +71,14 @@
 
 (define-abbrev-table 'git-gutter+-commit-mode-abbrev-table '())
 
-(define-abbrev-table 'global-abbrev-table
+(define-abbrev-table 'text-mode-abbrev-table
   '(
     ("rk" "Risto Kaartinen" nil 7)
     ("ta" "työnantaja" nil 5)
     ("tt" "työntekijä" nil 2)
     (",e" "että" nil 0)
 (",j" "joka" nil 0)
-(",jpäö" "jokapäiväinen" nil 0)
+("jopäö" "jokapäiväinen" nil 0)
 (",jö" "jokainen" nil 0)
 ("~" "koti" nil 0)
 ("~mö" "kotimainen" nil 0)
@@ -5936,7 +5936,7 @@
 
 (define-abbrev-table 'tabulated-list-mode-abbrev-table '())
 
-(define-abbrev-table 'text-mode-abbrev-table '())
+;;(define-abbrev-table 'text-mode-abbrev-table '())
 
 (define-abbrev-table 'url-cookie-mode-abbrev-table '())
 
